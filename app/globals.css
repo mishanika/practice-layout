@@ -44,8 +44,11 @@ input::placeholder {
 .changeColor::-webkit-scrollbar {
   background: #5b4f4e;
 }
-.svg {
+.svg-change {
   fill: black;
+}
+.svg {
+  fill: white;
 }
 .arrow {
   transform: translateX(0); /* Start within the section */
