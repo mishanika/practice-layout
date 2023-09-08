@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <header
-      className="w-full flex justify-between fixed p-[2.5vw] text-white z-[1] ease-linear duration-300"
+      className="w-full flex justify-between fixed p-[2.5vw] text-white z-[2] transition-[all] ease-linear delay-[0.3] "
       ref={headerRef}
     >
       <span className="logo">
@@ -17,7 +17,7 @@ const Header = () => {
       <nav
         className="flex grow gap-[5%] justify-center text-sm font-medium [&>*]:cursor-pointer [&>*]:overflow-hidden
        [&>*]:after:content-[''] [&>*]:after:w-[100%] [&>*]:after:h-[1px] [&>*]:after:ease-linear [&>*]:after:duration-300
-      [&>*]:after:block [&>*]:after:bg-white [&>*]:after:translate-x-[-100%] [&>*:hover]:after:translate-x-0"
+      [&>*]:after:block [&>*]:after:bg-white [&>*]:after:translate-x-[-102%] [&>*:hover]:after:translate-x-0"
       >
         <span>WORK</span>
         <span>ABOUT</span>

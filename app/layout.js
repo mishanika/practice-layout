@@ -17,9 +17,13 @@ const RootLayout = ({ children }) => {
   const headerRef = useRef(null);
   const footerRef = useRef(null);
   const videoRef = useRef(null);
-  const docRef = useRef(null);
+  const changeColorRef = useRef(null);
+  const mainRef = useRef(null);
+  const smoothScrollRef = useRef(null);
   const [offset, setOffset] = useState(0);
   const [observer, setObserver] = useState(null);
+
+  const smoothCoef = 0.05;
 
   const onScroll = () => {
     const st = window.pageYOffset || document.documentElement.scrollTop;
@@ -35,8 +39,44 @@ const RootLayout = ({ children }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [offset]);
+
+  // useEffect(() => {
+  //   const onResize = () => {
+  //     mainRef.current.style.height = smoothScrollRef.current.offsetHeight + "px";
+  //   };
+
+  //   onResize();
+
+  //   const loop = () => {
+  //     let prevY = window.scrollY;
+  //     let curY = window.scrollY;
+  //     let y = window.scrollY;
+  //     let dy;
+
+  //     return () => {
+  //       curY = window.scrollY;
+  //       dy = curY - prevY;
+  //       y = Math.abs(dy) < 1 ? curY : y + dy * smoothCoef;
+  //       prevY = y;
+  //       smoothScrollRef.current.style.transform = `translate3d(0,${-y}px,0)`;
+
+  //       requestAnimationFrame(loop);
+  //     };
+  //   };
+
+  //   const smooth = loop();
+  //   smooth();
+
+  //   window.addEventListener("resize", onResize);
+
+  //   return () => {
+  //     window.removeEventListener("resize", onResize);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const options = {
@@ -47,36 +87,59 @@ const RootLayout = ({ children }) => {
 
     setObserver(
       new IntersectionObserver((entries, observer) => {
-        entries.forEach((item) => {
-          if (
-            item.isIntersecting &&
-            item.target === footerRef.current &&
-            item.intersectionRatio >= 0.85
-          ) {
-            headerRef.current.style.background = "white";
-            headerRef.current.style.color = "black";
-          } else if (
-            item.target === videoRef.current &&
-            item.isIntersecting &&
-            item.intersectionRatio >= 0.3
-          ) {
-            headerRef.current.style.background = "transparent";
-            headerRef.current.style.color = "white";
-          }
-          console.log(entries);
-        });
+        if (entries.length != 1) {
+          document.querySelectorAll(".svg").forEach((item) => (item.style.fill = "white"));
+          headerRef.current.style.background = "transparent";
+          headerRef.current.style.color = "white";
+          mainRef.current.style.background = "#f4f4f4ff";
+        } else {
+          entries.forEach((item) => {
+            if (item.isIntersecting && item.target === footerRef.current && item.intersectionRatio >= 0.85) {
+              headerRef.current.style.background = "white";
+              headerRef.current.style.color = "black";
+              mainRef.current.style.background = "#f4f4f4ff";
+            } else if (item.target === videoRef.current && item.isIntersecting && item.intersectionRatio >= 0.3) {
+              document.querySelectorAll(".svg").forEach((item) => (item.style.fill = "white"));
+              headerRef.current.style.background = "transparent";
+              headerRef.current.style.color = "white";
+              mainRef.current.style.background = "#f4f4f4ff";
+            } else if (
+              item.target === changeColorRef.current &&
+              item.isIntersecting &&
+              item.intersectionRatio >= 0.35
+            ) {
+              document.querySelectorAll(".standart").forEach((item) => item.classList.add("changeColor"));
+              document.querySelectorAll(".svg").forEach((item) => item.classList.add("changeColor"));
+              headerRef.current.style.background = "#292826";
+              headerRef.current.style.color = "#f9cdcd";
+              mainRef.current.style.background = "#292826";
+              mainRef.current.style.color = "#f9cdcd";
+            } else {
+              document.querySelectorAll(".standart").forEach((item) => item.classList.remove("changeColor"));
+              document.querySelectorAll(".svg").forEach((item) => item.classList.remove("changeColor"));
+              headerRef.current.style.background = "#f4f4f4ff";
+              headerRef.current.style.color = "black";
+              mainRef.current.style.color = "black";
+              mainRef.current.style.background = "#f4f4f4ff";
+            }
+            console.log(item);
+          });
+        }
       }, options)
     );
   }, []);
 
   return (
     <html lang="en">
-      <body className={inter.className} ref={docRef}>
+      <body className={inter.className}>
         <MyContext.Provider
           value={{
             headerRef: headerRef,
             footerRef: footerRef,
             videoRef: videoRef,
+            changeColorRef: changeColorRef,
+            mainRef: mainRef,
+
             observer: observer,
           }}
         >
@@ -84,6 +147,7 @@ const RootLayout = ({ children }) => {
             <Header />
             {children}
             <Footer />
+            <div ref={smoothScrollRef}></div>
           </div>
         </MyContext.Provider>
       </body>

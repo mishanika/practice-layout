@@ -10,6 +10,7 @@ html,
 body {
   width: 100%;
   height: 100%;
+  scroll-behavior: smooth;
 }
 input {
   outline: none;
@@ -19,6 +20,125 @@ input {
 input::placeholder {
   color: white;
 }
-/* .hello {
-  height: 2000px;
-} */
+.standart::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  background: #bdbdbd;
+}
+.standart::-webkit-scrollbar-thumb {
+  background: #000;
+}
+.standart {
+  color: black;
+  transition: all cubic-bezier(0.72, 0, 0.28, 1) 0.65s;
+}
+
+.changeColor {
+  color: #f9cdcd;
+  border-color: #f9cdcd;
+  fill: #f9cdcd;
+}
+.changeColor::-webkit-scrollbar-thumb {
+  background: #f9cdcd;
+}
+.changeColor::-webkit-scrollbar {
+  background: #5b4f4e;
+}
+.svg {
+  fill: black;
+}
+.arrow {
+  transform: translateX(0); /* Start within the section */
+}
+.wrapper:hover .arrow {
+  animation: scrollRightToLeft 0.75s;
+}
+
+@keyframes scrollRightToLeft {
+  0% {
+    transform: translateX(0); /* Start within the section */
+  }
+  20% {
+    transform: translateX(200%);
+  }
+  40% {
+    transform: translateY(200%);
+  }
+  60% {
+    transform: translateX(-200%);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateX(0); /* Move off-screen to the left */
+  }
+}
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bg:after {
+  position: absolute;
+  top: -10rem;
+  left: -10rem;
+  width: calc(100% + 20rem);
+  height: calc(100% + 20rem);
+  animation: bg 1s steps(2) infinite;
+  background-image: url("https://www.basicagency.com/_next/static/media/noise.e8298e81.png");
+  background-position: 50%;
+  content: "";
+  will-change: transform;
+}
+
+@keyframes bg {
+  0% {
+    transform: translate3d(0, 9rem, 0);
+  }
+
+  10% {
+    transform: translate3d(-1rem, -4rem, 0);
+  }
+
+  20% {
+    transform: translate3d(-8rem, 2rem, 0);
+  }
+
+  30% {
+    transform: translate3d(9rem, -9rem, 0);
+  }
+
+  40% {
+    transform: translate3d(-2rem, 7rem, 0);
+  }
+
+  50% {
+    transform: translate3d(-9rem, -4rem, 0);
+  }
+
+  60% {
+    transform: translate3d(2rem, 6rem, 0);
+  }
+
+  70% {
+    transform: translate3d(7rem, -8rem, 0);
+  }
+
+  80% {
+    transform: translate3d(-9rem, 1rem, 0);
+  }
+
+  90% {
+    transform: translate3d(6rem, -5rem, 0);
+  }
+
+  to {
+    transform: translate3d(-7rem, 0, 0);
+  }
+}
