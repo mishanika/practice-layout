@@ -212,7 +212,7 @@ const Main = () => {
               </div>
             </div>
           </div>
-          <div className="standart w-[100%] py-[200px] flex justify-between" ref={changeColorRef}>
+          <div className="standart w-[100%] py-[200px] flex justify-between overflow-hidden" ref={changeColorRef}>
             <div className="">
               <div className="flex flex-col gap-[25px] sticky top-[150px]" id="sticky">
                 <span className="text-[6.25vw] font-bold leading-[8rem] mr-[50px] ">
