@@ -32,7 +32,7 @@ const Header = () => {
       >
         <div className="flex justify-between">
           <span className="logo">
-            <LogoSVG fill={"#f9cdcd"} />
+            <LogoSVG fill={"#f9cdcd"} staticLogo={true} />
           </span>
           <div className="" onClick={() => openMenu()}>
             <XMarkSVG fill={"#f9cdcd"} />
