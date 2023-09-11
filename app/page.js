@@ -13,6 +13,7 @@ const Main = () => {
   const sliderRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startPosition, setStartPosition] = useState(0);
+  const [windowSize, setWindowSize] = useState(0);
   const { videoRef, changeColorRef, mainRef, observer } = useContext(MyContext);
 
   const handleMouseDown = (e) => {
@@ -61,6 +62,10 @@ const Main = () => {
 
     return () => observer.disconnect();
   }, [observer]);
+
+  useEffect(() => {
+    setWindowSize(window.screen.width);
+  }, []);
 
   const sliderRender = ({ url, name, description }) => (
     <div
@@ -193,7 +198,7 @@ const Main = () => {
                 </div>
               </div>
               <div className="logo">
-                <SecondLogoSVG screenWidth={window.screen.width} />
+                <SecondLogoSVG screenWidth={windowSize} />
               </div>
             </div>
             <div
