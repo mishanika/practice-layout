@@ -118,14 +118,16 @@ const Main = () => {
     <main className="w-[100%] h-[100%] bg-[#f4f4f4ff] standart " ref={mainRef}>
       <div className="bg"></div>
       <section className="overflow-hidden">
-        <div className=" flex justify-center scale-125">
+        <div className=" flex justify-center scale-125 sm:h-[100vh] smm:h-[100vh]">
           <video
             preload="auto"
             playsInline
             autoPlay
             muted
             loop
-            className="h-[100vh] lg:h-[50vh] md:h-[50vh] sm:h-[40vh]"
+            className="h-[100vh] lg:h-[50vh] md:h-[50vh] 
+            sm:h-[100%] sm:max-w-[none] 
+            sm m:h-[100%] smm:max-w-[none]"
             ref={videoRef}
           >
             <source
@@ -248,7 +250,10 @@ const Main = () => {
               00 <div className="w-[30%]"></div> /05 <div className="w-[70%]"></div> <span className="text-2xl">●</span>
             </div>
             <div className="pt-[100px]">
-              <span className="flex flex-col font-bold text-5xl mb-[150px]">
+              <span
+                className="flex flex-col font-bold text-5xl mb-[150px] 
+              smm:text-3xl smm:mb-[50px] "
+              >
                 <span>Featured</span> Engagements
               </span>
               <div
@@ -264,7 +269,9 @@ const Main = () => {
           </div>
           <div
             className="standart w-[100%] py-[200px] flex justify-between
-          sm:flex-col-reverse  sm:items-start sm:gap-[25px]"
+          md:flex-col-reverse  md:items-start md:gap-[50px]
+          sm:flex-col-reverse  sm:items-start sm:gap-[25px]
+          "
             ref={changeColorRef}
           >
             <div className="">
@@ -305,7 +312,7 @@ const Main = () => {
               autoPlay
               muted
               loop
-              className="2xl:w-[50%] 2xl-min:h-[100%] 3xl:w-[50%] sm:w-[100%]"
+              className="2xl:w-[50%] 2xl-min:h-[100%] 3xl:w-[50%] lg:w-[50%] md:w-[100%] sm:w-[100%]"
             >
               <source
                 src="https://cdn.sanity.io/files/8nn8fua5/production/e4a840ba8dfeded08ac4d0ba6e930be56fc68e3b.mp4"

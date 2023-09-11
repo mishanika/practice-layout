@@ -36,6 +36,9 @@ input::placeholder {
 .open {
   display: flex;
 }
+.no-scroll {
+  overflow: hidden;
+}
 .changeColor {
   color: #f9cdcd;
   border-color: #f9cdcd;

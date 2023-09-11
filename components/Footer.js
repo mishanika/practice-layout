@@ -14,13 +14,16 @@ const Footer = () => {
 
   return (
     <footer
-      className="w-full h-[100vh] lg:h-[50vh] flex justify-between flex-col pt-[4%] md:pt-[8%] sm:pt-[8%] text-white bg-[#252422]"
+      className="w-full h-[100vh] lg:h-[50vh] flex justify-between flex-col pt-[4%] text-white bg-[#252422]
+      md:pt-[8%] sm:pt-[8%] smm:pt-[8%]"
       ref={footerRef}
     >
       <div
         className="flex justify-start pl-[5%] pr-[5%] 
       md:flex-col md:gap-[50px]
-      sm:flex-col sm:gap-[50px]"
+      sm:flex-col sm:gap-[50px]
+      smm:flex-col smm:gap-[50px]
+      "
       >
         <div className="w-1/2">
           <LogoFooterSVG />
@@ -29,7 +32,9 @@ const Footer = () => {
           <span
             className="w-[100%] block 
           md:flex md:flex-col
-          sm:flex sm:flex-col"
+          sm:flex sm:flex-col
+          smm:flex smm:flex-col
+          "
           >
             {" "}
             We collaborate with ambitious brands and people. Let&apos;s build.
@@ -47,7 +52,8 @@ const Footer = () => {
         <div
           className="w-1/2 flex flex-col gap-[25px] 
         md:w-full
-        sm:w-full"
+        sm:w-full
+        smm:w-full"
         >
           <span
             className="text-xl font-medium	 flex gap-[10px] items-center
@@ -62,20 +68,24 @@ const Footer = () => {
             className="w-[80%] text-white border-b-[2px] border-lightslategray pb-[15px]"
           />
         </div>
-        <div className="w-1/2 md:w-full sm:w-full">
+        <div className="w-1/2 md:w-full sm:w-full smm:w-full">
           <div
             className="w-[90%] flex justify-between [&>*>span]:text-xl [&>*>span]:font-medium [&>*>span]:flex [&>*>span]:gap-[10px] [&>*>span]:items-center 
           [&>*>span]:before:content-[''] [&>*>span]:before:w-[15px] [&>*>span]:before:h-[15px] 
         [&>*>span]:before:bg-white [&>*>span]:before:block [&>*>span]:before:rounded-full
         sm:[&>*>span]:text-lg sm:w-full
+        smm:[&>*>span]:text-lg smm:w-full smm:flex-col smm:gap-[25px]
 
         "
           >
-            <div className="flex flex-col gap-[25px]">
+            <div
+              className="flex flex-col gap-[25px]
+            "
+            >
               <span className="font-semibold">SOCIAL</span>
               <div
                 className="flex flex-col text-[#e7e7e7] text-lg font-semibold	[&>*]:cursor-pointer [&>*:hover]:underline
-              sm:text-md"
+              sm:text-base smm:flex-row smm:gap-[10px] smm:flex-wrap smm:text-sm"
               >
                 <span>Instagram</span>
                 <span>Twitter</span>
@@ -87,7 +97,7 @@ const Footer = () => {
               <span className="font-semibold">INITIATIVES</span>
               <div
                 className="flex flex-col text-lg font-semibold [&>*]:cursor-pointer [&>*:hover]:underline
-              sm:text-md"
+              sm:text-base smm:flex-row smm:gap-[10px] smm:flex-wrap smm:text-sm"
               >
                 <span>Crafted</span>
                 <span>Applied</span>
@@ -101,7 +111,7 @@ const Footer = () => {
 
               <div
                 className="flex flex-col text-lg font-semibold [&>*]:cursor-pointer [&>*:hover]:underline
-              sm:text-md"
+              sm:text-base smm:flex-row smm:gap-[10px] smm:flex-wrap smm:text-sm"
               >
                 <span>San Diego – CA</span>
                 <span>New York – NY</span>

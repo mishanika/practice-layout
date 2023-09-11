@@ -89,7 +89,11 @@ const RootLayout = ({ children }) => {
           mainRef.current.style.background = "#f4f4f4ff";
         } else {
           entries.forEach((item) => {
-            if (item.target === videoRef.current && item.isIntersecting && item.intersectionRatio >= 0.3) {
+            if (
+              item.target === videoRef.current &&
+              item.isIntersecting &&
+              (item.intersectionRatio >= 0.3 || window.screen.width <= 480)
+            ) {
               document.querySelectorAll(".svg").forEach((svg) => (svg.style.fill = "white"));
               headerRef.current.style.background = "transparent";
               headerRef.current.style.color = "white";

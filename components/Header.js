@@ -7,11 +7,12 @@ import { useContext, useEffect, useRef, useState } from "react";
 const Header = () => {
   const [burger, setBurger] = useState(false);
   const menuRef = useRef(null);
-  const { headerRef } = useContext(MyContext);
+  const { headerRef, mainRef } = useContext(MyContext);
 
   const openMenu = () => {
     if (burger) {
-      menuRef.current.className.toggle("open");
+      menuRef.current.classList.toggle("open");
+      document.querySelector("body").classList.toggle("no-scroll");
     }
   };
 
@@ -25,16 +26,19 @@ const Header = () => {
 
   return (
     <>
-      <div className="w-[100vw] h-[100vh] z-[3] bg-[#292826] hidden p-[2.5vw] text-[#f9cdcd]" ref={menuRef}>
+      <div
+        className="w-[100vw] h-[100vh] z-[3] bg-[#292826] hidden p-[2.5vw] text-[#f9cdcd] flex-col fixed gap-[50px]"
+        ref={menuRef}
+      >
         <div className="flex justify-between">
           <span className="logo">
-            <LogoSVG />
+            <LogoSVG fill={"#f9cdcd"} />
           </span>
-          <div className="">
-            <XMarkSVG onClick={() => openMenu()} />
+          <div className="" onClick={() => openMenu()}>
+            <XMarkSVG fill={"#f9cdcd"} />
           </div>
         </div>
-        <nav className="h-1/2 flex flex-col justify-between">
+        <nav className="h-[20%] flex flex-col justify-between">
           <span>WORK</span>
           <span>ABOUT</span>
           <span>NEWS</span>
