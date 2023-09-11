@@ -123,18 +123,8 @@ const Main = () => {
     <main className="w-[100%] h-[100%] bg-[#f4f4f4ff] standart " ref={mainRef}>
       <div className="bg"></div>
       <section className="overflow-hidden">
-        <div className=" flex justify-center scale-125 sm:h-[100vh] smm:h-[100vh]">
-          <video
-            preload="auto"
-            playsInline
-            autoPlay
-            muted
-            loop
-            className="h-[100vh] lg:h-[50vh] md:h-[50vh] 
-            sm:h-[100%] sm:max-w-[none] 
-            sm m:h-[100%] smm:max-w-[none]"
-            ref={videoRef}
-          >
+        <div className=" flex justify-center scale-125 h-[100vh] ">
+          <video preload="auto" playsInline autoPlay muted loop className="h-[100%] max-w-[none]" ref={videoRef}>
             <source
               src="https://cdn.sanity.io/files/8nn8fua5/production/c6fb986a862cbe643c40cbdd0318ebc495efb187.mp4"
               type="video/mp4"
@@ -146,7 +136,7 @@ const Main = () => {
       <section>
         <div className="pr-[5vw] pl-[5vw] z-[1] relative w-[100%] ">
           <div
-            className=" flex items-end [&>*]:grow [&>*]:flex [&>*]:flex-col [&>*]:gap-[2rem]
+            className=" flex items-start [&>*]:grow [&>*]:flex [&>*]:flex-col [&>*]:gap-[2rem]
       [&>*]:justify-center  [&>*>svg]:w-[50%] [&>*>span]:w-[60%] [&>*>span]:text-center	pt-[18vw] pb-[18vw] pr-[10vw] pl-[10vw]
       border-b-[1px] border-black
       md:[&>*>span]:w-[90%] md:text-sm md:items-start
