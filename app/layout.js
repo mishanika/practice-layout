@@ -89,11 +89,6 @@ const RootLayout = ({ children }) => {
           mainRef.current.style.background = "#f4f4f4ff";
         } else {
           entries.forEach((item) => {
-            // if (item.isIntersecting && item.target === footerRef.current && item.intersectionRatio >= 0.85) {
-            //   headerRef.current.style.background = "white";
-            //   headerRef.current.style.color = "black";
-            //   mainRef.current.style.background = "#f4f4f4ff";
-            // } else
             if (item.target === videoRef.current && item.isIntersecting && item.intersectionRatio >= 0.3) {
               document.querySelectorAll(".svg").forEach((svg) => (svg.style.fill = "white"));
               headerRef.current.style.background = "transparent";
@@ -104,14 +99,24 @@ const RootLayout = ({ children }) => {
               item.isIntersecting &&
               item.intersectionRatio >= 0.35
             ) {
-              document.querySelectorAll(".standart").forEach((el) => el.classList.add("changeColor"));
+              document.querySelectorAll(".standart").forEach((el) => {
+                el.classList.add("changeColor");
+                if (el.classList.contains("btn")) {
+                  el.style.background = "#f9cdcd";
+                }
+              });
               document.querySelectorAll(".svg").forEach((svg) => (svg.style.fill = "#f9cdcd"));
               headerRef.current.style.background = "#292826";
               headerRef.current.style.color = "#f9cdcd";
               mainRef.current.style.background = "#292826";
               mainRef.current.style.color = "#f9cdcd";
             } else {
-              document.querySelectorAll(".standart").forEach((el) => el.classList.remove("changeColor"));
+              document.querySelectorAll(".standart").forEach((el) => {
+                el.classList.remove("changeColor");
+                if (el.classList.contains("btn")) {
+                  el.style.background = "black";
+                }
+              });
               document.querySelectorAll(".svg").forEach((svg) => (svg.style.fill = "black"));
               headerRef.current.style.background = "#f4f4f4ff";
               headerRef.current.style.color = "black";

@@ -6,17 +6,25 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+    screens: {
+      sm: { max: "480px" },
+      // => @media (min-width: 640px) { ... }
 
-        BG: "url('/public/BG.svg')",
-        HG: "url('/public/HG.svg')",
-        VG: "url('/public/VG.svg')",
-        MG: "url('/public/MG.svg')",
-      },
+      md: { max: "768px", min: "481px" },
+      // => @media (min-width: 768px) { ... }
+      "md-sm": { max: "768px" },
+      lg: { max: "1024px", min: "769px" },
+      "lg-max": { max: "1024px" },
+      // => @media (min-width: 1024px) { ... }
+
+      xl: { max: "1280px", min: "1025px" },
+      // => @media (min-width: 1280px) { ... }
+
+      "2xl": { max: "1440px", min: "1281px" },
+      "2xl-max": { max: "1440px", min: "481px" },
+      "2xl-min": { min: "1441px" },
+      "3xl": { max: "1650px", min: "481px" },
+      // => @media (min-width: 1536px) { ... }
     },
   },
   plugins: [],

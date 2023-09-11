@@ -14,15 +14,23 @@ const Footer = () => {
 
   return (
     <footer
-      className="w-full h-[100vh] flex justify-between flex-col pt-[4%] text-white bg-[#252422]"
+      className="w-full h-[100vh] lg:h-[50vh] flex justify-between flex-col pt-[4%] md:pt-[8%] sm:pt-[8%] text-white bg-[#252422]"
       ref={footerRef}
     >
-      <div className="flex justify-start pl-[5%] pr-[5%] ">
+      <div
+        className="flex justify-start pl-[5%] pr-[5%] 
+      md:flex-col md:gap-[50px]
+      sm:flex-col sm:gap-[50px]"
+      >
         <div className="w-1/2">
           <LogoFooterSVG />
         </div>
-        <div className="w-1/2 text-3xl font-semibold text-[#e7e7e7]">
-          <span className="w-[70%] block">
+        <div className="w-full text-3xl font-semibold text-[#e7e7e7]">
+          <span
+            className="w-[100%] block 
+          md:flex md:flex-col
+          sm:flex sm:flex-col"
+          >
             {" "}
             We collaborate with ambitious brands and people. Let&apos;s build.
             <a href="" className="inline-block underline ">
@@ -31,8 +39,16 @@ const Footer = () => {
           </span>
         </div>
       </div>
-      <div className="flex justify-start pl-[5%] pr-[5%] ">
-        <div className="w-1/2 flex flex-col gap-[25px] ">
+      <div
+        className="flex justify-start pl-[5%] pr-[5%] 
+      md:flex-col md:gap-[50px]
+      sm:flex-col sm:gap-[25px]"
+      >
+        <div
+          className="w-1/2 flex flex-col gap-[25px] 
+        md:w-full
+        sm:w-full"
+        >
           <span
             className="text-xl font-medium	 flex gap-[10px] items-center
           before:content-[''] before:w-[15px] before:h-[15px] 
@@ -46,15 +62,21 @@ const Footer = () => {
             className="w-[80%] text-white border-b-[2px] border-lightslategray pb-[15px]"
           />
         </div>
-        <div className="w-1/2 ">
+        <div className="w-1/2 md:w-full sm:w-full">
           <div
             className="w-[90%] flex justify-between [&>*>span]:text-xl [&>*>span]:font-medium [&>*>span]:flex [&>*>span]:gap-[10px] [&>*>span]:items-center 
           [&>*>span]:before:content-[''] [&>*>span]:before:w-[15px] [&>*>span]:before:h-[15px] 
-        [&>*>span]:before:bg-white [&>*>span]:before:block [&>*>span]:before:rounded-full"
+        [&>*>span]:before:bg-white [&>*>span]:before:block [&>*>span]:before:rounded-full
+        sm:[&>*>span]:text-lg sm:w-full
+
+        "
           >
             <div className="flex flex-col gap-[25px]">
               <span className="font-semibold">SOCIAL</span>
-              <div className="flex flex-col text-[#e7e7e7] text-lg font-semibold	[&>*]:cursor-pointer [&>*:hover]:underline">
+              <div
+                className="flex flex-col text-[#e7e7e7] text-lg font-semibold	[&>*]:cursor-pointer [&>*:hover]:underline
+              sm:text-md"
+              >
                 <span>Instagram</span>
                 <span>Twitter</span>
                 <span>LinkedIn</span>
@@ -63,7 +85,10 @@ const Footer = () => {
             </div>
             <div className="flex flex-col gap-[25px] text-[#e7e7e7]">
               <span className="font-semibold">INITIATIVES</span>
-              <div className="flex flex-col text-lg font-semibold [&>*]:cursor-pointer [&>*:hover]:underline">
+              <div
+                className="flex flex-col text-lg font-semibold [&>*]:cursor-pointer [&>*:hover]:underline
+              sm:text-md"
+              >
                 <span>Crafted</span>
                 <span>Applied</span>
                 <span>Brandbeats</span>
@@ -74,7 +99,10 @@ const Footer = () => {
             <div className="flex flex-col gap-[25px] text-[#e7e7e7]">
               <span className="font-semibold">OFFICES</span>
 
-              <div className="flex flex-col text-lg font-semibold [&>*]:cursor-pointer [&>*:hover]:underline">
+              <div
+                className="flex flex-col text-lg font-semibold [&>*]:cursor-pointer [&>*:hover]:underline
+              sm:text-md"
+              >
                 <span>San Diego – CA</span>
                 <span>New York – NY</span>
                 <span>Bay Area – CA</span>
