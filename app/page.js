@@ -15,9 +15,9 @@ const Main = () => {
   const [startPosition, setStartPosition] = useState(0);
   const [windowSize, setWindowSize] = useState(0);
   const { videoRef, changeColorRef, mainRef, observer } = useContext(MyContext);
+  let way = 0;
 
   const handleMouseDown = (e) => {
-    console.log(sliderRef.current.childNodes);
     setIsDragging(true);
     setStartPosition(e.clientX);
   };
@@ -38,9 +38,15 @@ const Main = () => {
   const handleMouseMove = (e) => {
     if (isDragging) {
       const currentPosition = e.clientX;
-      for (let i = 0; i < 3; i++) {
+      way = startPosition - currentPosition < 0 ? -1 : 1;
+
+      for (let i = 0; i < 2; i++) {
         console.log(Math.abs(startPosition - currentPosition));
-        sliderRef.current.scrollLeft += (startPosition - currentPosition) / 40;
+        if ((way < 0 && startPosition - currentPosition > 0) || (way > 0 && startPosition - currentPosition < 0)) {
+          return;
+        }
+
+        sliderRef.current.scrollLeft += (startPosition - currentPosition) / 50;
       }
     }
   };
@@ -240,7 +246,7 @@ const Main = () => {
               </div>
             </div>
           </div>
-          <div className="w-[100%] ">
+          <div className="w-[100%] cursor-move">
             <div className="flex items-center pt-[15px] text-sm font-semibold">
               00 <div className="w-[30%]"></div> /05 <div className="w-[70%]"></div> <span className="text-2xl">●</span>
             </div>
@@ -296,7 +302,7 @@ const Main = () => {
                 >
                   <span className="z-[10] ease-linear delay-200 standart">SEE THE WORK</span>
 
-                  <div className="absolute w-[100%] h-[100%] bg-[#f9cdcd] translate-y-[101%] transition-all ease-linear delay-200"></div>
+                  <div className="absolute w-[100%] h-[100%] bg-[#f9cdcd] translate-y-[101%] transition-all ease-linear delay-200 standart"></div>
                 </div>
               </div>
             </div>

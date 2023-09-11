@@ -39,40 +39,6 @@ const RootLayout = ({ children }) => {
     };
   }, [offset]);
 
-  // useEffect(() => {
-  //   const onResize = () => {
-  //     mainRef.current.style.height = smoothScrollRef.current.offsetHeight + "px";
-  //   };
-
-  //   onResize();
-
-  //   const loop = () => {
-  //     let prevY = window.scrollY;
-  //     let curY = window.scrollY;
-  //     let y = window.scrollY;
-  //     let dy;
-
-  //     return () => {
-  //       curY = window.scrollY;
-  //       dy = curY - prevY;
-  //       y = Math.abs(dy) < 1 ? curY : y + dy * smoothCoef;
-  //       prevY = y;
-  //       smoothScrollRef.current.style.transform = `translate3d(0,${-y}px,0)`;
-
-  //       requestAnimationFrame(loop);
-  //     };
-  //   };
-
-  //   const smooth = loop();
-  //   smooth();
-
-  //   window.addEventListener("resize", onResize);
-
-  //   return () => {
-  //     window.removeEventListener("resize", onResize);
-  //   };
-  // }, []);
-
   useEffect(() => {
     const options = {
       root: null,
